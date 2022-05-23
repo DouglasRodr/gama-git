@@ -21,7 +21,7 @@ export default function RepositoryList() {
     }
   }, [fetchAllByUsername, navigate, user]);
 
-  function handleVoltar() {
+  function handleReturn() {
     clearUser();
     navigate("/");
   }
@@ -50,7 +50,7 @@ export default function RepositoryList() {
             })}
           </RL.RepositoryCardList>
           <RL.ReturnContainer>
-            <Button label="Voltar" onClick={handleVoltar} />
+            <Button label="Voltar" onClick={handleReturn} />
           </RL.ReturnContainer>
         </>
       )}
