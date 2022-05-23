@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
 export default function usePageTitle(title: string) {
-  const BASE_TITLE = "Consulta GitHub";
+  const BASE_TITLE = "GamaGit";
   useEffect(() => {
     document.title = `${BASE_TITLE} - ${title}`;
-  }, []); // eslint-disable-line
+  }, [title]);
 }
