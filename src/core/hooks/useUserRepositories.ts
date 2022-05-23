@@ -1,34 +1,16 @@
 import { useCallback, useState } from "react";
+import { GitHub } from "../../service/@types";
 import { RepositoryService } from "../../service/services";
 
 export default function useUserRepositories() {
-  const [repositories, setRepositories] = useState<string[]>([]);
+  const [repositories, setRepositories] = useState<GitHub.Repository[]>([]);
 
-  const fetchUserRepositories = useCallback(async function (username: string) {
-    const repositoriesName: string[] = [];
-
-    RepositoryService.getAllByUsername(username).then((userRepositories) => {
-      userRepositories.forEach((repository) => {
-        repositoriesName.push(repository.name);
-      });
-      localStorage.setItem(
-        "repositoriesName",
-        JSON.stringify(repositoriesName)
-      );
-    });
-  }, []);
-
-  const getUserRepositories = useCallback(() => {
-    let repositoriesName = localStorage.getItem("repositoriesName");
-    if (repositoriesName !== null) {
-      setRepositories(JSON.parse(repositoriesName));
-      localStorage.clear();
-    }
+  const fetchRepositoriesByUsername = useCallback(async function (username: string) {
+    RepositoryService.getAllByUsername(username).then(setRepositories);
   }, []);
 
   return {
-    fetchUserRepositories,
-    getUserRepositories,
     repositories,
+    fetchRepositoriesByUsername,
   };
 }

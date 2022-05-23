@@ -19,30 +19,32 @@ export default function SearchGitHubUser() {
 
   return (
     <SG.Wrapper>
-      <SG.Title>Buscar Repositórios do GitHub</SG.Title>
-      <SG.SearchForm>
-        <Input
-          placeholder="Digite o Usuário do GitHub"
-          value={username}
-          disabled={loading}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <SG.SearchButton
-          label="Buscar"
-          loading={loading}
-          onClick={handlePesquisa}
-        />
-      </SG.SearchForm>
-      {user && !loading && (
-        <UserCard
-          name={user.name}
-          login={user.login}
-          location={user.location}
-          avatarUrl={user.avatar_url}
-          publicRepositories={user.public_repos}
-          onClickRepositoriesLink={handleClickRepositories}
-        />
-      )}
+      <SG.Content>
+        <SG.Title>Buscar Repositórios do GitHub</SG.Title>
+        <SG.Form>
+          <Input
+            placeholder="Digite o Usuário do GitHub"
+            value={username}
+            disabled={loading}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <SG.SearchButton
+            label="Buscar"
+            loading={loading}
+            onClick={handlePesquisa}
+          />
+        </SG.Form>
+        {user && !loading && (
+          <UserCard
+            name={user.name}
+            login={user.login}
+            location={user.location}
+            avatarUrl={user.avatar_url}
+            publicRepositories={user.public_repos}
+            onClickRepositoriesLink={handleClickRepositories}
+          />
+        )}
+      </SG.Content>
     </SG.Wrapper>
   );
 }

@@ -2,6 +2,14 @@ import styled from "styled-components";
 import Button from "../../components/Button";
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+`;
+
+export const Content = styled.div`
   min-width: 384px;
   padding: 48px 32px;
   margin: 0 8px;
@@ -15,7 +23,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const SearchForm = styled.div`
+export const Form = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

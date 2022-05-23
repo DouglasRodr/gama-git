@@ -5,9 +5,9 @@ import SearchGitHubUser from "../features/SearchGitHubUser";
 export default function HomeView() {
   usePageTitle("Home");
 
-  return (<DefaultLayout>
-    <SearchGitHubUser />
-  </DefaultLayout>
+  return (
+    <DefaultLayout>
+      <SearchGitHubUser />
+    </DefaultLayout>
   );
-    
 }

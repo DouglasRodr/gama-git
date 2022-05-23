@@ -31,7 +31,7 @@ export const userReducer = createReducer(initialState, (builder) => {
 
   builder
     .addCase(fetchByUsername.fulfilled, (state, action) => {
-      state.user = action.payload || undefined;
+      state.user = action.payload;
     })
     .addMatcher(pending, (state) => {
       state.fetching = true;
