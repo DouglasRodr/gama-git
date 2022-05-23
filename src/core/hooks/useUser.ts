@@ -20,12 +20,11 @@ export default function useUser() {
       } else {
         dispatch(UserActions.fetchByUsername(username))
           .then(unwrapResult)
-          .then(() => {
-            setUsername("");
-          })
           .catch((error) => {
-            setUsername("");
             throw error;
+          })
+          .finally(() => {
+            setUsername("");
           });
       }
     },
