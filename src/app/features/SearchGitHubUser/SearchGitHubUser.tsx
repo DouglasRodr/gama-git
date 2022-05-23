@@ -9,6 +9,12 @@ export default function SearchGitHubUser() {
 
   const navigate = useNavigate();
 
+  function handleKeyDownSearch(event: React.KeyboardEvent) {
+    if (event.key === 'Enter') {
+      handlePesquisa();
+    }
+  }
+
   function handlePesquisa() {
     fetchUser();
   }
@@ -27,6 +33,7 @@ export default function SearchGitHubUser() {
             value={username}
             disabled={loading}
             onChange={(e) => setUsername(e.target.value)}
+            onKeyDown={handleKeyDownSearch}
           />
           <SG.SearchButton
             label="Buscar"
