@@ -13,4 +13,12 @@ export default createGlobalStyle`
     body{
         background: #241D29;
     }
+
+    .swal2-popup {
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .swal2-popup {
+        background: #352e3a;
+    }
 `;
