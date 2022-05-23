@@ -11,11 +11,11 @@ export default function SearchGitHubUser() {
 
   function handleKeyDownSearch(event: React.KeyboardEvent) {
     if (event.key === 'Enter') {
-      handlePesquisa();
+      handleSearch();
     }
   }
 
-  function handlePesquisa() {
+  function handleSearch() {
     fetchUser();
   }
 
@@ -38,7 +38,7 @@ export default function SearchGitHubUser() {
           <SG.SearchButton
             label="Buscar"
             loading={loading}
-            onClick={handlePesquisa}
+            onClick={handleSearch}
           />
         </SG.Form>
         {user && !loading && (
