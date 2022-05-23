@@ -1,24 +1,20 @@
-import { useState } from "react";
-import useAlert from "../../../core/hooks/useAlert";
 import useUser from "../../../core/hooks/useUser";
-import Button from "../../components/Button";
 import Input from "../../components/Input";
+import UserCard from "../../components/UserCard";
 import * as SG from "./SearchGitHubUser.styles";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchGitHubUser() {
-  const { loading, fetchUserByUsername } = useUser();
+  const { username, setUsername, loading, fetchUser, user } = useUser();
 
-  const [username, setUsername] = useState("");
-
-  const { showError } = useAlert();
+  const navigate = useNavigate();
 
   function handlePesquisa() {
-    if (username.length > 0) {
-      fetchUserByUsername(username);
-      setUsername("");
-    } else {
-      showError("Usuário deve ser informado");
-    }
+    fetchUser();
+  }
+
+  function handleClickRepositories() {
+    navigate("/repositories");
   }
 
   return (
@@ -28,10 +24,25 @@ export default function SearchGitHubUser() {
         <Input
           placeholder="Digite o Usuário do GitHub"
           value={username}
+          disabled={loading}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <Button label="Buscar" loading={loading} onClick={handlePesquisa} />
+        <SG.SearchButton
+          label="Buscar"
+          loading={loading}
+          onClick={handlePesquisa}
+        />
       </SG.SearchForm>
+      {user && !loading && (
+        <UserCard
+          name={user.name}
+          login={user.login}
+          location={user.location}
+          avatarUrl={user.avatar_url}
+          publicRepositories={user.public_repos}
+          onClickRepositoriesLink={handleClickRepositories}
+        />
+      )}
     </SG.Wrapper>
   );
 }

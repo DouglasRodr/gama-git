@@ -22,7 +22,7 @@ const Layout = styled.div`
 
 const TopBar = styled.div`
   text-align: center;
-  padding: 8px 0;
+  padding: 16px 0;
 `;
 
 const Content = styled.div`
