@@ -21,4 +21,8 @@ export default createGlobalStyle`
     .swal2-popup {
         background: #352e3a;
     }
+
+    .swal2-title {
+        color: #e1e1e1;
+    }
 `;
