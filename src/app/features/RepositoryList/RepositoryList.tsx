@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useUser from "../../../core/hooks/useUser";
-import useUserRepositories from "../../../core/hooks/useUserRepositories";
+import useRepository from "../../../core/hooks/useRepository";
 import getUpdatedAtDescrition from "../../../core/utils/getUpdatedAtDescription";
 import Button from "../../components/Button";
 import Loading from "../../components/Loading";
@@ -11,16 +11,15 @@ import * as RL from "./RepositoryList.styles";
 export default function RepositoryList() {
   const navigate = useNavigate();
   const { user, clearUser } = useUser();
-  const { loading, repositories, fetchRepositoriesByUsername } =
-    useUserRepositories();
+  const { loading, repositories, fetchAllByUsername } = useRepository();
 
   useEffect(() => {
     if (!user) {
       navigate("/");
     } else {
-      fetchRepositoriesByUsername(user.login);
+      fetchAllByUsername(user.login);
     }
-  }, [fetchRepositoriesByUsername, navigate, user]);
+  }, [fetchAllByUsername, navigate, user]);
 
   function handleVoltar() {
     clearUser();
