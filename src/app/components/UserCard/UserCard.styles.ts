@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  background: #352e3a;
 
   width: 100%;
   border: 1px solid #ffffff;
@@ -16,6 +17,7 @@ export const Avatar = styled.img`
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  margin: auto;
 `;
 
 export const UserInfo = styled.div`

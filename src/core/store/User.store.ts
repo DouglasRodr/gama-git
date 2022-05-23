@@ -15,6 +15,10 @@ export const fetchByUsername = createAsyncThunk(
   }
 );
 
+export const clearUser = createAsyncThunk("user/clearUser", () => {
+
+});
+
 interface UserSliceState {
   user?: GitHub.User;
   fetching: boolean;
@@ -32,6 +36,9 @@ export const userReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(fetchByUsername.fulfilled, (state, action) => {
       state.user = action.payload;
+    })
+    .addCase(clearUser.fulfilled, (state) => {
+      state.user = undefined;
     })
     .addMatcher(pending, (state) => {
       state.fetching = true;

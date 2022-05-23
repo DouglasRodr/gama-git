@@ -32,5 +32,9 @@ export default function useUser() {
     [dispatch, username]
   );
 
-  return { username, setUsername, loading, fetchUser, user };
+  const clearUser = useCallback(() => {
+    dispatch(UserActions.clearUser());
+  }, [dispatch]);
+
+  return { username, setUsername, loading, fetchUser, user, clearUser };
 }

@@ -7,7 +7,7 @@ export interface ButtonProps
     HTMLButtonElement
   > {
   label: string;
-  loading: boolean;
+  loading?: boolean | false;
 }
 
 export default function Button({ label, loading, ref, ...props }: ButtonProps) {

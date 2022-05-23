@@ -6,13 +6,13 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 16px;
   height: 85vh;
 `;
 
 export const Content = styled.div`
   min-width: 384px;
   padding: 48px 32px;
-  margin: 0 8px;
   border-radius: 8px;
   background: #352e3a;
   gap: 16px;
