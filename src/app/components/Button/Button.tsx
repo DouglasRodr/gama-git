@@ -11,7 +11,7 @@ export interface ButtonProps
 }
 
 export default function Button({ label, loading, ref, ...props }: ButtonProps) {
-  return <B.Wrapper {...props} disabled={loading}>
+  return <B.Wrapper {...props} disabled={loading || props.disabled}>
     { loading && <B.Loading />}
     {label}
   </B.Wrapper>;
