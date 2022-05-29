@@ -6,8 +6,8 @@ export interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  label: string;
-  loading?: boolean | false;
+  label: string | React.ReactNode;
+  loading?: boolean;
 }
 
 export default function Button({ label, loading, ref, ...props }: ButtonProps) {
