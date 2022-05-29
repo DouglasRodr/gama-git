@@ -81,4 +81,12 @@ export namespace GitHubRepository {
     watchers: number;
     default_branch: string;
   };
+
+  export type Query = {
+    type?: "all" | "owner" | "member";
+    sort?: "full_name" | "created" | "updated" | "pushed";
+    direction?: "asc" | "desc";
+    per_page?: number;
+    page?: number;
+  };
 }

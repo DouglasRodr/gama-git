@@ -17,7 +17,7 @@ export default function RepositoryList() {
     if (!user) {
       navigate("/");
     } else {
-      fetchAllByUsername(user.login);
+      fetchAllByUsername(user.login, { page: 1, per_page: 15 });
     }
   }, [fetchAllByUsername, navigate, user]);
 
