@@ -6,7 +6,7 @@ import {
   isRejected,
 } from "@reduxjs/toolkit";
 import { UserService } from "../../service";
-import { GitHub } from "../../service/@types";
+import { GitHubUser } from "../../service/@types";
 
 export const fetchByUsername = createAsyncThunk(
   "user/fetchByUsername",
@@ -20,7 +20,7 @@ export const clearUser = createAsyncThunk("user/clearUser", () => {
 });
 
 interface UserSliceState {
-  user?: GitHub.User;
+  user?: GitHubUser.Detailed;
   fetching: boolean;
 }
 

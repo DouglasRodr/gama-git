@@ -1,9 +1,9 @@
-import { GitHub } from "../@types";
+import { GitHubUser } from "../@types";
 import Service from "../Service";
 
 class UserService extends Service {
   static getByUsername(username: string) {
-    return this.Http.get<GitHub.User>(`/users/${username}`)
+    return this.Http.get<GitHubUser.Detailed>(`/users/${username}`)
       .then(this.getData)
       .catch((error) => {
         if (
