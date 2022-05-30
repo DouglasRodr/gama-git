@@ -1,7 +1,7 @@
 import { format, formatDistance, differenceInDays } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
-export default function getUpdatedAtDescrition(updatedAtDate: Date) {
+export default function getUpdatedAtDescription(updatedAtDate: Date) {
   const today = new Date();
   const dayDiff = differenceInDays(today, updatedAtDate);
 

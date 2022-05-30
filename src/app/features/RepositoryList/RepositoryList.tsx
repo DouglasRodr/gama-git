@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useUser from "../../../core/hooks/useUser";
 import useRepository from "../../../core/hooks/useRepository";
-import getUpdatedAtDescrition from "../../../core/utils/getUpdatedAtDescription";
+import getUpdatedAtDescription from "../../../core/utils/getUpdatedAtDescription";
 import Button from "../../components/Button";
 import Loading from "../../components/Loading";
 import RepositoryCard from "../../components/RepositoryCard";
@@ -96,7 +96,7 @@ export default function RepositoryList() {
                 name={repository.name}
                 description={repository.description}
                 language={repository.language}
-                updatedAt={getUpdatedAtDescrition(
+                updatedAt={getUpdatedAtDescription(
                   new Date(repository.updated_at)
                 )}
                 repositoryUrl={repository.svn_url}
