@@ -7,12 +7,19 @@ export interface ButtonProps
     HTMLButtonElement
   > {
   label: string | React.ReactNode;
+  variant?: "primary" | "secondary";
   loading?: boolean;
 }
 
 export default function Button({ label, loading, ref, ...props }: ButtonProps) {
-  return <B.Wrapper {...props} disabled={loading || props.disabled}>
-    { loading && <B.Loading />}
-    {label}
-  </B.Wrapper>;
+  return (
+    <B.Wrapper
+      {...props}
+      disabled={loading || props.disabled}
+      variant={props.variant || 'primary'}
+    >
+      {loading && <B.Loading />}
+      {label}
+    </B.Wrapper>
+  );
 }

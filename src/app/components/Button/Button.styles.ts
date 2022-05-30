@@ -1,11 +1,25 @@
 import styled, { keyframes } from "styled-components";
 
-export const Wrapper = styled.button`
+const THEME = {
+  primary: {
+    bg: "#9035e0",
+    color: "#ffffff",
+  },
+  secondary: {
+    bg: "#63db3e",
+    color: "#ffffff",
+  },
+};
+
+export const Wrapper = styled.button<{
+  variant: "primary" | "secondary";
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: #9035e0;
+  background: ${p => THEME[p.variant].bg};
+  color: ${p => THEME[p.variant].color};
   border-radius: 4px;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -22,10 +36,6 @@ export const Wrapper = styled.button`
   &:enabled:hover {
     filter: opacity(0.85);
     transition: 0.3s ease-in-out;
-  }
-
-  &:focus:active {
-    background: #63db3e;
   }
 
   &:disabled {
