@@ -1,5 +1,5 @@
 import * as P from "./Pagination.styles";
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
 export interface PaginationProps {
   firstLabel?: string;
@@ -24,17 +24,19 @@ export default function Pagination({
   totalElements,
   ...props
 }: PaginationProps) {
-  
-  const getTotalPages = useCallback(():number => {
-    return Math.ceil(totalElements / pageSize)
-  }, [pageSize, totalElements])
+  const getTotalPages = useCallback((): number => {
+    return Math.ceil(totalElements / pageSize);
+  }, [pageSize, totalElements]);
 
   const getPaginationPages = (): number[] => {
     let start = 1;
 
     if (currentPage <= maxDisplayedPages - Math.trunc(maxDisplayedPages / 2)) {
       start = 1;
-    } else if (currentPage <= getTotalPages() - Math.trunc(maxDisplayedPages / 2)) {
+    } else if (
+      currentPage <=
+      getTotalPages() - Math.trunc(maxDisplayedPages / 2)
+    ) {
       start = currentPage - Math.trunc(maxDisplayedPages / 2);
     } else {
       start = getTotalPages() - maxDisplayedPages + 1;
@@ -49,7 +51,11 @@ export default function Pagination({
 
   return (
     <P.Wrapper>
-      <p>{`Exibindo ${(pageSize * (currentPage - 1)) + 1} - ${pageSize * currentPage} de ${totalElements}`}</p>
+      <p>{`Exibindo ${pageSize * (currentPage - 1) + 1} - ${
+        pageSize * currentPage > totalElements
+          ? totalElements
+          : pageSize * currentPage
+      } de ${totalElements}`}</p>
       <P.PaginationWrapper>
         <P.PageButton
           label={firstLabel}
