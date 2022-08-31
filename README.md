@@ -17,6 +17,10 @@ As seguintes tecnologias/ferramentas foram usadas na construção do projeto:
 - Redux
 - SweetAlert2
 
+<h4 align="center">
+  Você pode conferir o projeto aqui: <a href="https://douglasrodr-gama-git.netlify.app/" target="_blank">Demo</a>
+</h4>
+
 ## 🚀 Executando Projeto
 
 No diretório do projeto, você pode executar:
